@@ -8,13 +8,13 @@ jobs:
     runs-on: ubuntu-latest
     working_directory: ./scraper
     steps:
-      checkout:
+      - name: checkout
         uses: actions/checkout@master
-      install:
+      - name: install
         run: yarn install
-      scrape:
+      - name: scrape
         run: yarn start
-      publish:
+      - name: publish
         uses: mikeal/publish-to-github-action@master
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
