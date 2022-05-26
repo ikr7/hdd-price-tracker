@@ -1,0 +1,20 @@
+on:
+  schedule:
+    - cron:  '0 0 * * *'
+name: Scrape Data
+jobs:
+  scrape:
+    name: Scrape
+    runs-on: ubuntu-latest
+    working_directory: ./scraper
+    steps:
+      checkout:
+        uses: actions/checkout@master
+      install:
+        run: yarn install
+      scrape:
+        run: yarn start
+      publish:
+        uses: mikeal/publish-to-github-action@master
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
