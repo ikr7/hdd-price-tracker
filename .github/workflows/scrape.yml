@@ -11,10 +11,10 @@ jobs:
       - name: checkout
         uses: actions/checkout@master
       - name: install
-        working_directory: ./scraper
+        working-directory: ./scraper
         run: yarn install
       - name: scrape
-        working_directory: ./scraper
+        working-directory: ./scraper
         run: yarn start
       - name: publish
         uses: mikeal/publish-to-github-action@master
