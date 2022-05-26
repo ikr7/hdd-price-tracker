@@ -1,0 +1,13 @@
+{
+  "name": "hdd-price-tracker",
+  "version": "1.0.0",
+  "main": "main.js",
+  "license": "MIT",
+  "dependencies": {
+    "axios": "^0.27.2",
+    "jsdom": "^19.0.0"
+  },
+  "scripts": {
+    "start": "node action.js"
+  }
+}
