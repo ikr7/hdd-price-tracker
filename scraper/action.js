@@ -102,8 +102,6 @@ async function main() {
 
         entries.push(entry);
 
-        console.log(entry);
-
     }
 
     await fs.writeFile(dataPath, JSON.stringify(entries));
