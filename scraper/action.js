@@ -103,6 +103,8 @@ async function main() {
         entries.push(entry);
 
     }
+    
+    entry.sort((a, b) => (a.id > b.id) ? 1 : -1);
 
     await fs.writeFile(dataPath, JSON.stringify(entries));
 
