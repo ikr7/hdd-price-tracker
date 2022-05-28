@@ -42,7 +42,8 @@ function App() {
 
   useEffect(() => {
     (async () => {
-      const data = await (await fetch('data/2022-05-28.json')).json() as HDDEntry[];
+      const history = await(await fetch('./history.json')).json() as string[];
+      const data = await (await fetch(`data/${history[history.length - 1]}`)).json() as HDDEntry[];
       setRows(data);
     })();
   }, []);

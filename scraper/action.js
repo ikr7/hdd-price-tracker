@@ -41,7 +41,8 @@ async function main() {
         recursive: true
     });
 
-    const dataPath = path.join(dataDir, fileString(new Date()) + '.json');
+    const fileName = fileString(new Date()) + '.json';
+    const dataPath = path.join(dataDir, fileName);
 
     const entries = [];
 
@@ -103,10 +104,16 @@ async function main() {
         entries.push(entry);
 
     }
-    
+
     entries.sort((a, b) => (a.id > b.id) ? 1 : -1);
 
     await fs.writeFile(dataPath, JSON.stringify(entries));
+
+    const historyPath = path.join(__dirname, '../public/history.json');
+    const history = JSON.parse(await fs.readFile(historyPath));
+    history.push(fileName);
+
+    await fs.writeFile(historyPath, JSON.stringify(history));
 
 }
 
