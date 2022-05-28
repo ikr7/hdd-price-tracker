@@ -111,9 +111,11 @@ async function main() {
 
     const historyPath = path.join(__dirname, '../public/history.json');
     const history = JSON.parse(await fs.readFile(historyPath));
-    history.push(fileName);
-
-    await fs.writeFile(historyPath, JSON.stringify(history));
+    
+    if (history.indexOf(filename) === -1) {
+        history.push(fileName);
+        await fs.writeFile(historyPath, JSON.stringify(history));
+    }
 
 }
 
