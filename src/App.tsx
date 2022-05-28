@@ -76,12 +76,6 @@ function App() {
     { field: 'dosparaPrice', renderCell: renderLink('dospara'), type: 'number', sortable: false },
   ];
 
-  function handleClick(e: React.MouseEvent<HTMLButtonElement>) {
-    const foo = JSON.parse(JSON.stringify(rows)) as HDDEntry[];
-    [foo[0], foo[1]] = [foo[1], foo[0]];
-    setRows(foo);
-  }
-
   return (
     <>
       <AppBar position='static'>
