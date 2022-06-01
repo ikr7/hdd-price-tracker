@@ -1,13 +1,10 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 
-import { AppBar, Toolbar, Typography } from '@mui/material';
-import GitHubIcon from '@mui/icons-material/GitHub';
+import { Table, PageHeader } from 'antd';
+import type { ColumnsType } from 'antd/lib/table';
 
-import {
-  DataGrid,
-  GridColDef,
-  GridRenderCellParams
-} from '@mui/x-data-grid';
+import 'antd/dist/antd.css';
+import { GithubOutlined } from '@ant-design/icons';
 
 type HDDEntry = {
   id: number;
@@ -34,8 +31,6 @@ type HDDEntry = {
   };
 };
 
-type ShopName = 'amazonjp' | 'tsukumo' | 'sofmap' | 'pckoubou' | 'dospara';
-
 function App() {
 
   const [rows, setRows] = useState<HDDEntry[]>([]);
@@ -48,58 +43,129 @@ function App() {
     })();
   }, []);
 
-  function renderLink(shop: ShopName) {
-    return function (params: GridRenderCellParams) {
-      return (
-        <a
-          href={(params.row as HDDEntry).links[shop]}
-          target="_blank"
-          rel='noreferrer'
-        >
-          {(params.row as HDDEntry).prices[shop]}
-        </a>
-      );
-    }
-  }
-
-  const columns: GridColDef[] = [
-    { field: 'manufacturer', width: 150, sortable: false },
-    { field: 'brand', sortable: false },
-    { field: 'capacity', type: 'number', sortable: false },
-    { field: 'rpm', type: 'number', sortable: false },
-    { field: 'record', sortable: false },
-    { field: 'cache', type: 'number', sortable: false },
-    { field: 'model', width: 150, sortable: false },
-    { field: 'amazonPrice', renderCell: renderLink('amazonjp'), type: 'number', sortable: false },
-    { field: 'tsukumoPrice', renderCell: renderLink('tsukumo'), type: 'number', sortable: false },
-    { field: 'sofmapPrice', renderCell: renderLink('sofmap'), type: 'number', sortable: false },
-    { field: 'pckoubouPrice', renderCell: renderLink('pckoubou'), type: 'number', sortable: false },
-    { field: 'dosparaPrice', renderCell: renderLink('dospara'), type: 'number', sortable: false },
+  const columns: ColumnsType<HDDEntry> = [
+    {
+      title: 'Manufacturer',
+      dataIndex: 'manufacturer',
+      key: 'manufacturer'
+    },
+    {
+      title: 'Brand',
+      dataIndex: 'brand',
+      key: 'brand'
+    },
+    {
+      title: 'capacity',
+      dataIndex: 'capacity',
+      key: 'capacity'
+    },
+    {
+      title: 'rpm',
+      dataIndex: 'rpm',
+      key: 'rpm'
+    },
+    {
+      title: 'record',
+      dataIndex: 'record',
+      key: 'record'
+    },
+    {
+      title: 'cache',
+      dataIndex: 'cache',
+      key: 'cache'
+    },
+    {
+      title: 'model',
+      dataIndex: 'model',
+      key: 'model'
+    },
+    {
+      dataIndex: ['prices', 'tsukumo'],
+      title: 'tsukumoPrice',
+      key: 'tsukumoPrice',
+      render: (price, row) => {
+        return (
+          <a
+            href={row.links.tsukumo}
+            target='_blank'
+            rel='noreferrer'
+          >
+              {price}
+          </a>
+        )
+      }
+    },
+    {
+      dataIndex: ['prices', 'sofmap'],
+      title: 'sofmapPrice',
+      key: 'sofmapPrice',
+      render: (price, row) => {
+        return (
+          <a
+            href={row.links.sofmap}
+            target='_blank'
+            rel='noreferrer'
+          >
+              {price}
+          </a>
+        )
+      }
+    },
+    {
+      dataIndex: ['prices', 'pckoubou'],
+      title: 'pckoubouPrice',
+      key: 'pckoubouPrice',
+      render: (price, row) => {
+        return (
+          <a
+            href={row.links.pckoubou}
+            target='_blank'
+            rel='noreferrer'
+          >
+              {price}
+          </a>
+        )
+      }
+    },
+    {
+      dataIndex: ['prices', 'dospara'],
+      title: 'dosparaPrice',
+      key: 'dosparaPrice',
+      render: (price, row) => {
+        return (
+          <a
+            href={row.links.dospara}
+            target='_blank'
+            rel='noreferrer'
+          >
+              {price}
+          </a>
+        )
+      }
+    },
   ];
 
   return (
     <>
-      <AppBar position='static'>
-        <Toolbar>
-          <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-            HDD Price Tracker
-          </Typography>
-          <a href="https://github.com/ikr7/hdd-price-tracker">
-            <GitHubIcon />
-          </a>
-        </Toolbar>
-      </AppBar>
-      <div style={{ height: '95vh' }}>
-        <DataGrid
-          rows={rows}
-          columns={columns}
-          density='compact'
-          disableColumnMenu={true}
-          disableSelectionOnClick={true}
-          autoPageSize={true}
-        />
-      </div>
-    </>
+    <PageHeader
+      title="HDD Price Tracker"
+      backIcon={false}
+      extra={[
+        <a href="https://github.com/ikr7/hdd-price-tracker">
+          <GithubOutlined />
+        </a>
+      ]}
+    />
+    <Table
+      columns={columns}
+      dataSource={rows}
+      size="small"
+      pagination={{
+        pageSize: 1000,
+        position: []
+      }}
+    />
+  </>
   );
 }
 
