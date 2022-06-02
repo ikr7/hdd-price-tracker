@@ -65,12 +65,14 @@ async function main() {
         const random_wait = 5 + 10 * Math.random();
 
         const [
+            amazonPrice,
             tsukumoPrice,
             sofmapPrice,
             pckoubouPrice,
             dosparaPrice,
             _
         ] = await Promise.all([
+            extractors.extractAmazon(amazonLink),
             extractors.extractTsukumo(tsukumoLink),
             extractors.extractSofmap(sofmapLink),
             extractors.extractPCkoubou(pckoubouLink),
@@ -88,12 +90,14 @@ async function main() {
             cache: parseInt(cache),
             model,
             links: {
+                amazonjp: amazonLink,
                 tsukumo: tsukumoLink,
                 sofmap: sofmapLink,
                 pckoubou: pckoubouLink,
                 dospara: dosparaLink
             },
             prices: {
+                amazonjp: amazonPrice,
                 tsukumo: tsukumoPrice,
                 sofmap: sofmapPrice,
                 pckoubou: pckoubouPrice,

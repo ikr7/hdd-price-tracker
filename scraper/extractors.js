@@ -30,9 +30,13 @@ async function extractPrice(productUrl, selector) {
     if (!document) {
         return null;
     }
-    const priceText = document.querySelector(selector).textContent;
-    const price = parseInt(priceText.replace(/\D/g, ''));
+    const priceText = document.querySelector(selector)?.textContent;
+    const price = parseInt(priceText?.replace(/\D/g, ''));
     return price;
+}
+
+exports.extractAmazon = async function(productUrl) {
+    return await extractPrice(productUrl, 'span.a-price-whole');
 }
 
 exports.extractTsukumo = async function(productUrl) {
