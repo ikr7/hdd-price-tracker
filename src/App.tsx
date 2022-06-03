@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react';
 import { Table, PageHeader, Tooltip } from 'antd';
 import type { ColumnsType, ColumnType } from 'antd/lib/table';
 
-import 'antd/dist/antd.css';
+import 'antd/dist/antd.less';
 import { GithubOutlined, StarFilled } from '@ant-design/icons';
 
 type HDDEntry = {
