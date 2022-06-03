@@ -1,4 +1,4 @@
-id,manufacturer,brand,capacity,RPM,record,cache,model,amazonjp,sofmap,tsukumo,pckoubou,dospara
+id,manufacturer,brand,capacity,RPM,record,cache,model,amazon_jp,sofmap,tsukumo,pc-koubou,dospara
 1,Seagate,Barracuda,8,5400,SMR,256,ST8000DM004,https://www.amazon.co.jp/dp/B07911QK3X,https://www.sofmap.com/product_detail.aspx?sku=17572634,https://shop.tsukumo.co.jp/goods/0763649094419/,https://www.pc-koubou.jp/products/detail.php?product_id=612856,https://www.dospara.co.jp/5shopping/detail_parts.php?ic=451338
 2,Seagate,Barracuda,6,5400,SMR,256,ST6000DM003,https://www.amazon.co.jp/dp/B07X93LCY5,https://www.sofmap.com/product_detail.aspx?sku=17572635,https://shop.tsukumo.co.jp/goods/0763649094426/,https://www.pc-koubou.jp/products/detail.php?product_id=612857,https://www.dospara.co.jp/5shopping/detail_parts.php?bg=1&br=13&sbr=172&mkr=6&ic=451337&ft=ST6000DM003
 3,Seagate,Barracuda,4,5400,SMR,256,ST4000DM004,https://www.amazon.co.jp/dp/B073ZGQZM1,https://www.sofmap.com/product_detail.aspx?sku=16869223,https://shop.tsukumo.co.jp/goods/0763649094402/,https://www.pc-koubou.jp/products/detail.php?product_id=591731,https://www.dospara.co.jp/5shopping/detail_parts.php?bg=1&br=13&sbr=172&mkr=6&ic=447707&ft=ST4000DM004&lf=0
@@ -7,16 +7,91 @@ id,manufacturer,brand,capacity,RPM,record,cache,model,amazonjp,sofmap,tsukumo,pc
 6,Seagate,Barracuda,2,5400,SMR,256,ST2000DM005,https://www.amazon.co.jp/dp/B07MZZT9DP,https://www.sofmap.com/product_detail.aspx?sku=18147445,https://shop.tsukumo.co.jp/goods/0763649094396/,https://www.pc-koubou.jp/products/detail.php?product_id=635067,https://www.dospara.co.jp/5shopping/detail_parts.php?bg=1&br=13&sbr=172&mkr=6&ic=454570&ft=ST2000DM005
 7,Seagate,Barracuda,1,7200,CMR,64,ST1000DM010,https://www.amazon.co.jp/dp/B01M04WP2B,https://www.sofmap.com/product_detail.aspx?sku=13203330,https://shop.tsukumo.co.jp/goods/0763649110928/,https://www.pc-koubou.jp/products/detail.php?product_id=812046,https://www.dospara.co.jp/5shopping/detail_parts.php?bg=1&br=13&sbr=172&mkr=6&ic=440959&ft=ST1000DM010
 8,Seagate,Barracuda,0.5,7200,CMR,32,ST500DM009,,https://www.sofmap.com/product_detail.aspx?sku=13077551,https://shop.tsukumo.co.jp/goods/0763649110232/,,
+9,Seagate,IronWolf,18,7200,CMR,256,ST18000VN000,,,,,
+10,Seagate,IronWolf,16,7200,CMR,256,ST16000VN001,,,,,
+11,Seagate,IronWolf,14,7200,CMR,256,ST14000VN0008,,,https://shop.tsukumo.co.jp/goods/0763649121740/,,
+12,Seagate,IronWolf,12,7200,CMR,256,ST12000VN0008,,https://www.sofmap.com/product_detail.aspx?sku=22805198,https://shop.tsukumo.co.jp/goods/0763649121757/,https://www.pc-koubou.jp/products/detail.php?product_id=681184,https://www.dospara.co.jp/5shopping/detail_parts.php?bg=1&br=13&sbr=172&mkr=6&ic=460724&ft=ST12000VN0008&lf=0
+13,Seagate,IronWolf,10,7200,CMR,256,ST10000VN0008,,https://www.sofmap.com/product_detail.aspx?sku=20294945,https://shop.tsukumo.co.jp/goods/0763649121764/,https://www.pc-koubou.jp/products/detail.php?product_id=693162,
+14,Seagate,IronWolf,10,7200,CMR,256,ST10000VN000,,https://www.sofmap.com/product_detail.aspx?sku=23124984,,https://www.pc-koubou.jp/products/detail.php?product_id=693162,
+15,Seagate,IronWolf,8,7200,CMR,256,ST8000VN004,,https://www.sofmap.com/product_detail.aspx?sku=19500102,https://shop.tsukumo.co.jp/goods/0763649125069/,https://www.pc-koubou.jp/products/detail.php?product_id=715020,https://www.dospara.co.jp/5shopping/detail_parts.php?bg=1&br=13&sbr=172&mkr=6&ic=460723&ft=ST8000VN004
+16,Seagate,IronWolf,6,5400,CMR,256,ST6000VN001,,https://www.sofmap.com/product_detail.aspx?sku=20474768,https://shop.tsukumo.co.jp/goods/0763649092095/,https://www.pc-koubou.jp/products/detail.php?product_id=760337,https://www.dospara.co.jp/5shopping/detail_parts.php?bg=1&br=13&sbr=172&mkr=6&ic=472949&ft=ST6000VN001
+17,Seagate,IronWolf,4,5400,CMR,256,ST4000VN006,,,,,
+18,Seagate,IronWolf,4,5900,CMR,64,ST4000VN008,,https://www.sofmap.com/product_detail.aspx?sku=13157471,https://shop.tsukumo.co.jp/goods/0763649110560/,https://www.pc-koubou.jp/products/detail.php?product_id=588489,https://www.dospara.co.jp/5shopping/detail_parts.php?bg=1&br=13&sbr=172&mkr=6&ic=441179&ft=ST4000VN008
+19,Seagate,IronWolf,3,5400,CMR,256,ST3000VN006,,,,,
+20,Seagate,IronWolf,3,5900,CMR,64,ST3000VN007,,https://www.sofmap.com/product_detail.aspx?sku=13157477,https://shop.tsukumo.co.jp/goods/0763649110706/,https://www.pc-koubou.jp/products/detail.php?product_id=588498,
+21,Seagate,IronWolf,2,5900,CMR,64,ST2000VN004,,https://www.sofmap.com/product_detail.aspx?sku=13157476,https://shop.tsukumo.co.jp/goods/0763649110690/,https://www.pc-koubou.jp/products/detail.php?product_id=588491,
+22,Seagate,IronWolf,1,5900,CMR,64,ST1000VN002,,https://www.sofmap.com/product_detail.aspx?sku=13125184,https://shop.tsukumo.co.jp/goods/0763649110683/,,
+23,Seagate,IronWolf Pro,20,7200,CMR,256,ST20000NE000,,https://www.sofmap.com/product_detail.aspx?sku=22851276,https://shop.tsukumo.co.jp/goods/0763649169889/,https://www.pc-koubou.jp/products/detail.php?product_id=867730,https://www.dospara.co.jp/5shopping/detail_parts.php?bg=1&br=13&sbr=172&mkr=6&ic=477237&ft=ST20000NE000
+24,Seagate,IronWolf Pro,18,7200,CMR,256,ST18000NE000,,https://www.sofmap.com/product_detail.aspx?sku=21408547,https://shop.tsukumo.co.jp/goods/0763649146248/,https://www.pc-koubou.jp/products/detail.php?product_id=812047,https://www.dospara.co.jp/5shopping/detail_parts.php?bg=1&br=13&sbr=172&mkr=6&ic=469034&ft=ST18000NE000
+25,Seagate,IronWolf Pro,16,7200,CMR,256,ST16000NE000,,https://www.sofmap.com/product_detail.aspx?sku=19560965,https://shop.tsukumo.co.jp/goods/0763649124338/,https://www.pc-koubou.jp/products/detail.php?product_id=698350,https://www.dospara.co.jp/5shopping/detail_parts.php?bg=1&br=13&sbr=172&mkr=6&ic=467488&ft=ST16000NE000
+26,Seagate,IronWolf Pro,14,7200,CMR,256,ST14000NE0008,,https://www.sofmap.com/product_detail.aspx?sku=18742594,https://shop.tsukumo.co.jp/goods/0763649121771/,,https://www.dospara.co.jp/5shopping/detail_parts.php?bg=1&br=13&sbr=172&mkr=6&ic=465242&ft=ST14000NE0008
+27,Seagate,IronWolf Pro,12,7200,CMR,256,ST12000NE0008,,https://www.sofmap.com/product_detail.aspx?sku=19504423,https://shop.tsukumo.co.jp/goods/0763649121788/,,
+28,Seagate,IronWolf Pro,10,7200,CMR,256,ST10000NE0008,,https://www.sofmap.com/product_detail.aspx?sku=20294946,,https://www.pc-koubou.jp/products/detail.php?product_id=684900,
+29,Seagate,IronWolf Pro,10,7200,CMR,256,ST10000NE000,,https://www.sofmap.com/product_detail.aspx?sku=23124985,,https://www.pc-koubou.jp/products/detail.php?product_id=684900,
+30,Seagate,IronWolf Pro,8,7200,CMR,256,ST8000NE001,,https://www.sofmap.com/product_detail.aspx?sku=19504424,https://shop.tsukumo.co.jp/goods/0763649125113/,,
+31,Seagate,IronWolf Pro,6,7200,CMR,256,ST6000NE000,,https://www.sofmap.com/product_detail.aspx?sku=19503490,,,https://www.dospara.co.jp/5shopping/detail_parts.php?bg=1&br=13&sbr=172&mkr=6&ic=467488&ft=ST6000NE000
+32,Seagate,IronWolf Pro,4,7200,CMR,256,ST4000NE001,,https://www.sofmap.com/product_detail.aspx?sku=19504425,https://shop.tsukumo.co.jp/goods/0763649125137/,,
 33,Western Digital,WD Blue,8,5640,CMR,128,WD80EAZZ,https://www.amazon.co.jp/dp/B09LH9XLB9,https://www.sofmap.com/product_detail.aspx?sku=22793949,https://shop.tsukumo.co.jp/goods/0718037894157/,https://www.pc-koubou.jp/products/detail.php?product_id=861752,https://www.dospara.co.jp/5shopping/detail_parts.php?bg=1&br=13&sbr=172&mkr=13&ic=476850&ft=WD80EAZZ
-34,Western Digital,WD Blue,6,5400,SMR,256,WD60EZAZ,https://www.amazon.co.jp/dp/B0858VP66C,https://www.sofmap.com/product_detail.aspx?sku=19026158,https://shop.tsukumo.co.jp/goods/0718037855684/,https://www.pc-koubou.jp/products/detail.php?product_id=674535,
-35,Western Digital,WD Blue,4,5400,CMR,256,WD40EZRZ,,https://www.sofmap.com/product_detail.aspx?sku=13203333,https://shop.tsukumo.co.jp/goods/4549584178089/,,
-36,Western Digital,WD Blue,4,5400,SMR,256,WD40EZAZ,,https://www.sofmap.com/product_detail.aspx?sku=22084634,https://shop.tsukumo.co.jp/goods/0718037858173/,https://www.pc-koubou.jp/products/detail.php?product_id=816055,
+34,Western Digital,WD Blue,6,5400,SMR,256,WD60EZAZ,https://www.amazon.co.jp/dp/B0858VP66C,https://www.sofmap.com/product_detail.aspx?sku=19026158,https://shop.tsukumo.co.jp/goods/0718037855684/,https://www.pc-koubou.jp/products/detail.php?product_id=674535,https://www.dospara.co.jp/5shopping/detail_parts.php?bg=1&br=13&sbr=172&mkr=13&ic=458341&ft=WD60EZAZ
+35,Western Digital,WD Blue,4,5400,CMR,256,WD40EZRZ,,https://www.sofmap.com/product_detail.aspx?sku=13203333,https://shop.tsukumo.co.jp/goods/4549584178089/,,https://www.dospara.co.jp/5shopping/detail_parts.php?bg=1&br=13&sbr=172&mkr=13&ic=433842&ft=WD40EZRZ
+36,Western Digital,WD Blue,4,5400,SMR,256,WD40EZAZ,,https://www.sofmap.com/product_detail.aspx?sku=22084634,https://shop.tsukumo.co.jp/goods/0718037858173/,https://www.pc-koubou.jp/products/detail.php?product_id=816055,https://www.dospara.co.jp/5shopping/detail_parts.php?bg=1&br=13&sbr=172&mkr=13&ic=472606&ft=WD40EZAZ
 37,Western Digital,WD Blue,3,5400,CMR,256,WD30EZRZ,,https://www.sofmap.com/product_detail.aspx?sku=12830451,https://shop.tsukumo.co.jp/goods/0718037840154/,,
 38,Western Digital,WD Blue,3,5400,CMR,256,WD30EZAZ,https://www.amazon.co.jp/dp/B0857M7C3C,,,,
 39,Western Digital,WD Blue,2,5400,CMR,256,WD20EZRZ,,https://www.sofmap.com/product_detail.aspx?sku=12830456,,,
-40,Western Digital,WD Blue,2,7200,SMR,256,WD20EZBX,,https://www.sofmap.com/product_detail.aspx?sku=23211832,https://shop.tsukumo.co.jp/goods/0718037877501/,https://www.pc-koubou.jp/products/detail.php?product_id=816060,
-41,Western Digital,WD Blue,2,5400,SMR,256,WD20EZAZ,https://www.amazon.co.jp/dp/B0857M7C3C,https://www.sofmap.com/product_detail.aspx?sku=18569334,https://shop.tsukumo.co.jp/goods/0718037856254/,https://www.pc-koubou.jp/products/detail.php?product_id=648062,
-42,Western Digital,WD Blue,1,5400,CMR,64,WD10EZRZ,,https://www.sofmap.com/product_detail.aspx?sku=12830450,https://shop.tsukumo.co.jp/goods/0718037840147/,https://www.pc-koubou.jp/products/detail.php?product_id=574744,
-43,Western Digital,WD Blue,1,7200,CMR,64,WD10EZEX,https://www.amazon.co.jp/dp/B08BRVKB6Q,https://www.sofmap.com/product_detail.aspx?sku=11872427,https://shop.tsukumo.co.jp/goods/4515479554245/,https://www.pc-koubou.jp/products/detail.php?product_id=275742,
+40,Western Digital,WD Blue,2,7200,SMR,256,WD20EZBX,,https://www.sofmap.com/product_detail.aspx?sku=23211832,https://shop.tsukumo.co.jp/goods/0718037877501/,https://www.pc-koubou.jp/products/detail.php?product_id=816060,https://www.dospara.co.jp/5shopping/detail_parts.php?bg=1&br=13&sbr=172&mkr=13&ic=472605&ft=WD20EZBX
+41,Western Digital,WD Blue,2,5400,SMR,256,WD20EZAZ,https://www.amazon.co.jp/dp/B0857M7C3C,https://www.sofmap.com/product_detail.aspx?sku=18569334,https://shop.tsukumo.co.jp/goods/0718037856254/,https://www.pc-koubou.jp/products/detail.php?product_id=648062,https://www.dospara.co.jp/5shopping/detail_parts.php?bg=1&br=13&sbr=172&mkr=13&ic=456421&ft=WD20EZAZ
+42,Western Digital,WD Blue,1,5400,CMR,64,WD10EZRZ,,https://www.sofmap.com/product_detail.aspx?sku=12830450,https://shop.tsukumo.co.jp/goods/0718037840147/,https://www.pc-koubou.jp/products/detail.php?product_id=574744,https://www.dospara.co.jp/5shopping/detail_parts.php?bg=1&br=13&sbr=172&mkr=13&ic=433842&ft=WD10EZRZ
+43,Western Digital,WD Blue,1,7200,CMR,64,WD10EZEX,https://www.amazon.co.jp/dp/B08BRVKB6Q,https://www.sofmap.com/product_detail.aspx?sku=11872427,https://shop.tsukumo.co.jp/goods/4515479554245/,https://www.pc-koubou.jp/products/detail.php?product_id=275742,https://www.dospara.co.jp/5shopping/detail_parts.php?bg=1&br=13&sbr=172&mkr=13&ic=342315&ft=WD10EZEX
 44,Western Digital,WD Blue,0.5,5400,CMR,64,WD5000AZRZ,,https://www.sofmap.com/product_detail.aspx?sku=12830453,https://shop.tsukumo.co.jp/goods/0718037840178/,https://www.pc-koubou.jp/products/detail.php?product_id=574741,
-45,Western Digital,WD Blue,0.5,7200,CMR,32,WD5000AZLX,,https://www.sofmap.com/product_detail.aspx?sku=12044730,https://shop.tsukumo.co.jp/goods/4515479619326/,https://www.pc-koubou.jp/products/detail.php?product_id=386209,
+45,Western Digital,WD Blue,0.5,7200,CMR,32,WD5000AZLX,,https://www.sofmap.com/product_detail.aspx?sku=12044730,https://shop.tsukumo.co.jp/goods/4515479619326/,https://www.pc-koubou.jp/products/detail.php?product_id=386209,https://www.dospara.co.jp/5shopping/detail_parts.php?bg=1&br=13&sbr=172&mkr=13&ic=356406&ft=WD5000AZLX
+46,Western Digital,WD Red,6,5400,SMR,256,WD60EFAX,,https://www.sofmap.com/product_detail.aspx?sku=19072160,https://shop.tsukumo.co.jp/goods/0718037860947/,https://www.pc-koubou.jp/products/detail.php?product_id=675632,https://www.dospara.co.jp/5shopping/detail_parts.php?bg=1&br=13&sbr=172&mkr=13&ic=458481&ft=WD60EFAX
+47,Western Digital,WD Red,4,5400,SMR,256,WD40EFAX,,https://www.sofmap.com/product_detail.aspx?sku=20481081,https://shop.tsukumo.co.jp/goods/0718037861036/,https://www.pc-koubou.jp/products/detail.php?product_id=728741,https://www.dospara.co.jp/5shopping/detail_parts.php?bg=1&br=13&sbr=172&mkr=13&ic=464879&ft=WD40EFAX
+48,Western Digital,WD Red,3,5400,SMR,256,WD30EFAX,,https://www.sofmap.com/product_detail.aspx?sku=20481082,https://shop.tsukumo.co.jp/goods/0718037861074/,https://www.pc-koubou.jp/products/detail.php?product_id=731506,https://www.dospara.co.jp/5shopping/detail_parts.php?bg=1&br=13&sbr=172&mkr=13&ic=464880&ft=WD30EFAX
+49,Western Digital,WD Red,2,5400,SMR,256,WD20EFAX,,https://www.sofmap.com/product_detail.aspx?sku=19233729,https://shop.tsukumo.co.jp/goods/0718037858135/,https://www.pc-koubou.jp/products/detail.php?product_id=682658,https://www.dospara.co.jp/5shopping/detail_parts.php?bg=1&br=13&sbr=172&mkr=13&ic=459251&ft=WD20EFAX
+50,Western Digital,WD Red Plus,14,7200,CMR,512,WD140EFGX,,https://www.sofmap.com/product_detail.aspx?sku=21888478,https://shop.tsukumo.co.jp/goods/0718037886183/,https://www.pc-koubou.jp/products/detail.php?product_id=808129,https://www.dospara.co.jp/5shopping/detail_parts.php?bg=1&br=13&sbr=172&mkr=13&ic=471040&ft=WD140EFGX
+51,Western Digital,WD Red Plus,14,7200,CMR,512,WD140EFFX,,https://www.sofmap.com/product_detail.aspx?sku=20115732,https://shop.tsukumo.co.jp/goods/0718037872841/,,
+52,Western Digital,WD Red Plus,12,7200,CMR,256,WD120EFBX,,https://www.sofmap.com/product_detail.aspx?sku=21888479,https://shop.tsukumo.co.jp/goods/0718037886190/,,https://www.dospara.co.jp/5shopping/detail_parts.php?bg=1&br=13&sbr=172&mkr=13&ic=471039&ft=WD120EFBX
+53,Western Digital,WD Red Plus,12,7200,CMR,256,WD120EFAX,,https://www.sofmap.com/product_detail.aspx?sku=19434705,https://shop.tsukumo.co.jp/goods/0718037866260/,,
+54,Western Digital,WD Red Plus,10,7200,CMR,256,WD101EFBX,,https://www.sofmap.com/product_detail.aspx?sku=21856389,https://shop.tsukumo.co.jp/goods/0718037886206/,,https://www.dospara.co.jp/5shopping/detail_parts.php?bg=1&br=13&sbr=172&mkr=13&ic=471038&ft=WD101EFBX
+55,Western Digital,WD Red Plus,10,7200,CMR,256,WD101EFAX,,https://www.sofmap.com/product_detail.aspx?sku=20481701,https://shop.tsukumo.co.jp/goods/0718037866758/,,
+56,Western Digital,WD Red Plus,8,7200,CMR,256,WD80EFBX,,https://www.sofmap.com/product_detail.aspx?sku=22885200,https://shop.tsukumo.co.jp/goods/0718037886213/,,
+57,Western Digital,WD Red Plus,8,7200,CMR,256,WD80EFAX,,https://www.sofmap.com/product_detail.aspx?sku=18033909,https://shop.tsukumo.co.jp/goods/0718037854694/,,
+58,Western Digital,WD Red Plus,8,5640,CMR,128,WD80EFZX,,https://www.sofmap.com/product_detail.aspx?sku=12979312,,,
+59,Western Digital,WD Red Plus,8,5640,CMR,128,WD80EFZZ,,https://www.sofmap.com/product_detail.aspx?sku=23083285,https://shop.tsukumo.co.jp/goods/0718037896755/,https://www.pc-koubou.jp/products/detail.php?product_id=881932,https://www.dospara.co.jp/5shopping/detail_parts.php?bg=1&br=13&sbr=172&mkr=13&ic=478856&ft=WD80EFZZ
+60,Western Digital,WD Red Plus,6,5640,CMR,128,WD60EFZX,,https://www.sofmap.com/product_detail.aspx?sku=21888474,https://shop.tsukumo.co.jp/goods/0718037821542/,https://www.pc-koubou.jp/products/detail.php?product_id=816442,https://www.dospara.co.jp/5shopping/detail_parts.php?bg=1&br=13&sbr=172&mkr=13&ic=471036&ft=WD60EFZX
+61,Western Digital,WD Red Plus,4,5400,CMR,128,WD40EFZX,,https://www.sofmap.com/product_detail.aspx?sku=21888477,https://shop.tsukumo.co.jp/goods/0718037884394/,https://www.pc-koubou.jp/products/detail.php?product_id=803773,https://www.dospara.co.jp/5shopping/detail_parts.php?bg=1&br=13&sbr=172&mkr=13&ic=471035&ft=WD40EFZX
+62,Western Digital,WD Red Plus,3,5400,CMR,128,WD30EFZX,,https://www.sofmap.com/product_detail.aspx?sku=21888476,https://shop.tsukumo.co.jp/goods/0718037884387/,https://www.pc-koubou.jp/products/detail.php?product_id=803772,https://www.dospara.co.jp/5shopping/detail_parts.php?bg=1&br=13&sbr=172&mkr=13&ic=471034&ft=WD30EFZX
+63,Western Digital,WD Red Plus,2,5400,CMR,128,WD20EFZX,,https://www.sofmap.com/product_detail.aspx?sku=21888475,https://shop.tsukumo.co.jp/goods/0718037884370/,https://www.pc-koubou.jp/products/detail.php?product_id=808128,https://www.dospara.co.jp/5shopping/detail_parts.php?bg=1&br=13&sbr=172&mkr=13&ic=471033&ft=WD20EFZX
+64,Western Digital,WD Red Plus,1,5400,CMR,64,WD10EFRX,,https://www.sofmap.com/product_detail.aspx?sku=11922385,https://shop.tsukumo.co.jp/goods/4515479578876/,https://www.pc-koubou.jp/products/detail.php?product_id=276439,https://www.dospara.co.jp/5shopping/detail_parts.php?bg=1&br=13&sbr=172&mkr=13&ic=335889&ft=WD10EFRX
+65,Western Digital,WD Red Plus,1,5400,CMR,16,WD10JFCX,,https://www.sofmap.com/product_detail.aspx?sku=12183329,https://shop.tsukumo.co.jp/goods/4515479687288/,,
+66,Western Digital,WD Red Pro,20,7200,CMR,512,WD201KFGX,,,,,
+67,Western Digital,WD Red Pro,18,7200,CMR,512,WD181KFGX,,,,,
+68,Western Digital,WD Red Pro,16,7200,CMR,512,WD161KFGX,,,,,
+69,Western Digital,WD Red Pro,14,7200,CMR,512,WD141KFGX,,,,,
+70,Western Digital,WD Red Pro,12,7200,CMR,256,WD121KFBX,,,,,
+71,Western Digital,WD Red Pro,10,7200,CMR,256,WD102KFBX,,,,,
+72,Western Digital,WD Red Pro,10,7200,CMR,256,WD101KFBX,,,,,
+73,Western Digital,WD Red Pro,8,7200,CMR,256,WD8003FFBX,,,,,
+74,Western Digital,WD Red Pro,6,7200,CMR,256,WD6003FFBX,,,,,
+75,Western Digital,WD Red Pro,4,7200,CMR,256,WD4003FFBX,,,,,
+76,Western Digital,WD Red Pro,2,7200,CMR,64,WD2002FFSX,,,,,
+77,Western Digital,WD Gold,20,7200,CMR,512,WD201KRYZ,,,,,
+78,Western Digital,WD Gold,18,7200,CMR,512,WD181KRYZ,,,,,
+79,Western Digital,WD Gold,16,7200,CMR,512,WD161KRYZ,,,,,
+80,Western Digital,WD Gold,14,7200,CMR,256,WD141KRYZ,,,,,
+81,Western Digital,WD Gold,12,7200,CMR,256,WD121KRYZ,,,,,
+82,Western Digital,WD Gold,10,7200,CMR,256,WD102KRYZ,,,,,
+83,Western Digital,WD Gold,8,7200,CMR,256,WD8004FRYZ,,,,,
+84,Western Digital,WD Gold,6,7200,CMR,256,WD6003FRYZ,,,,,
+85,Western Digital,WD Gold,4,7200,CMR,256,WD4003FRYZ,,,,,
+86,Western Digital,WD Gold,2,7200,CMR,128,WD2005FBYZ,,,,,
+87,Western Digital,WD Gold,1,7200,CMR,128,WD1005FBYZ,,,,,
+88,Western Digital,WD Black,10,7200,CMR,256,WD101FZBX,,,,,
+89,Western Digital,WD Black,8,7200,CMR,256,WD8001FZBX,,,,,
+90,Western Digital,WD Black,8,7200,CMR,256,WD8002FZWX,,,,,
+91,Western Digital,WD Black,6,7200,CMR,256,WD6004FZWX,,,,,
+92,Western Digital,WD Black,6,7200,CMR,256,WD6003FZBX,,,,,
+93,Western Digital,WD Black,4,7200,CMR,256,WD4005FZBX,,,,,
+94,Western Digital,WD Black,2,7200,CMR,64,WD2003FZEX,,,,,
+95,Western Digital,WD Black,1,7200,CMR,64,WD1003FZEX,,,,,
+96,Western Digital,WD Black,0.5,7200,CMR,64,WD5003AZEX,,,,,
