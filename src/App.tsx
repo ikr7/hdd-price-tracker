@@ -98,7 +98,7 @@ function App() {
       dataIndex: 'brand',
       filters: Array.from(new Set(rows.map(row => row.brand))).map(value => {
         return {
-          text: value,
+          text: value.split(' ').join('\u00A0'),
           value: value
         };
       }),
