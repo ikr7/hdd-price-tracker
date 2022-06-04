@@ -15,6 +15,7 @@ type HDDEntry = {
   record: string;
   cache: number;
   model: string;
+  pricePerTB: number;
   links: {
     amazonjp?: string;
     tsukumo?: string;
@@ -39,7 +40,7 @@ function App() {
     (async () => {
       const history = await(await fetch('./history.json')).json() as string[];
       const data = await (await fetch(`data/${history[history.length - 1]}`)).json() as HDDEntry[];
-      setRows(data);
+      setRows(data.map(hddEntry => Object.assign(hddEntry, { pricePerTB: computePricePerTB(hddEntry) })));
     })();
   }, []);
 
@@ -72,6 +73,12 @@ function App() {
         )
       }
     }
+  }
+
+  function computePricePerTB(record: HDDEntry) {
+    const prices = Object.values(record.prices).filter(price => price);
+    const sum = prices.reduce((e, c) => e + c, 0);
+   return Math.round((sum / prices.length) / record.capacity);
   }
 
   const columns: ColumnsType<HDDEntry> = [
@@ -163,6 +170,14 @@ function App() {
         priceColumn('PC-Koubou', 'pckoubou'),
         priceColumn('Dospara', 'dospara'),
       ]
+    },
+    {
+      title: 'price / TB (Average)',
+      key: 'pricePerTB',
+      render: (value, record) => {
+        return formatPrice(record.pricePerTB)
+      },
+      sorter: (a, b) => a.pricePerTB - b.pricePerTB
     }
   ];
 
