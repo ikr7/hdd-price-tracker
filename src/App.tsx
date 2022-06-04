@@ -100,7 +100,7 @@ function App() {
     {
       title: 'Capacity',
       dataIndex: 'capacity',
-      filters: Array.from(new Set(rows.map(row => row.capacity))).sort().map(value => {
+      filters: Array.from(new Set(rows.map(row => row.capacity))).sort((a, b) => a - b).map(value => {
         return {
           text: unitCapacity(value),
           value: value
