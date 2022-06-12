@@ -1,7 +1,9 @@
-import { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
-import { Table, PageHeader, Tooltip } from 'antd';
+import { Table, PageHeader, Tooltip, Button, Modal } from 'antd';
 import type { ColumnsType, ColumnType } from 'antd/lib/table';
+
+import { LineChart, Line, ResponsiveContainer, YAxis, XAxis, Legend, Tooltip as RechartTooltip } from 'recharts';
 
 import 'antd/dist/antd.min.css';
 import { GithubOutlined, StarFilled } from '@ant-design/icons';
@@ -32,15 +34,32 @@ type HDDEntry = {
   };
 };
 
+type ShopNames = 'amazonjp' | 'tsukumo' | 'sofmap' | 'pckoubou' | 'dospara';
+
 function App() {
 
   const [rows, setRows] = useState<HDDEntry[]>([]);
+  const [filenames, setFilenames] = useState<string[]>([]);
+  const [history, setHistory] = useState<HDDEntry[][]>([]);
+  const [activePriceData, setActivePriceData] = useState<{ [shopName in ShopNames]?: number }[]>([]);
+  const [isModalVisible, setIsModalVisible] = useState<boolean>(false);
 
   useEffect(() => {
     (async () => {
-      const history = await(await fetch('./history.json')).json() as string[];
-      const data = await (await fetch(`data/${history[history.length - 1]}`)).json() as HDDEntry[];
-      setRows(data.map(hddEntry => Object.assign(hddEntry, { pricePerTB: computePricePerTB(hddEntry) })));
+
+      const fetchedFilenames = await(await fetch('./history.json')).json() as string[];
+
+      setFilenames(fetchedFilenames);
+
+      const responses = await Promise.all(fetchedFilenames.map(filename => {
+        return fetch(`data/${filename}`);
+      }));
+
+      const fetchedHistory = await Promise.all(responses.map(response => response.json())) as HDDEntry[][];
+
+      setHistory(fetchedHistory);
+      setRows(fetchedHistory[fetchedHistory.length - 1].map(hddEntry => Object.assign(hddEntry, { pricePerTB: computePricePerTB(hddEntry) })));
+
     })();
   }, []);
 
@@ -52,9 +71,7 @@ function App() {
     return x ? '\xa5' + x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") : null;
   }
 
-  type ShopName = 'amazonjp' | 'tsukumo' | 'sofmap' | 'pckoubou' | 'dospara';
-
-  function priceColumn(title: string, shopName: ShopName): ColumnType<HDDEntry> {
+  function priceColumn(title: string, shopName: ShopNames): ColumnType<HDDEntry> {
     return {
       dataIndex: ['prices', shopName],
       title: title,
@@ -79,6 +96,20 @@ function App() {
     const prices = Object.values(record.prices).filter(price => price);
     const sum = prices.reduce((e, c) => e + c, 0);
    return Math.round((sum / prices.length) / record.capacity);
+  }
+
+  function showModal(e: React.MouseEvent<HTMLElement>) {
+    
+    const selectedEntryId = parseInt(e.currentTarget.dataset.id as string);
+    const selectedPriceData = history.map(entries => entries.filter(entry => entry.id === selectedEntryId)[0].prices);
+
+    setActivePriceData(selectedPriceData);
+    setIsModalVisible(true);
+  
+  }
+
+  function hideModal() {
+    setIsModalVisible(false);
   }
 
   const columns: ColumnsType<HDDEntry> = [
@@ -178,6 +209,13 @@ function App() {
         return formatPrice(record.pricePerTB)
       },
       sorter: (a, b) => a.pricePerTB - b.pricePerTB
+    },
+    {
+      title: 'price history',
+      key: 'priceHistory',
+      render: (value, record) => {
+        return <Button onClick={showModal} data-id={record.id}>show</Button>;
+      }
     }
   ];
 
@@ -205,6 +243,53 @@ function App() {
       }}
       rowKey="id"
     />
+    <Modal
+      title="basic modal"
+      visible={isModalVisible}
+      onCancel={hideModal}
+      width="95%"
+      footer={null}
+    >
+      <ResponsiveContainer width="100%" height={700}>
+        <LineChart
+          data={activePriceData}
+        >
+          <Legend />
+          <RechartTooltip />
+          <XAxis />
+          <YAxis
+            domain={[
+              Math.min(...activePriceData.map(p => Math.min(...[p.tsukumo, p.sofmap, p.pckoubou, p.dospara].filter(v => v).map(v => v!)))) - 100,
+              Math.max(...activePriceData.map(p => Math.max(...[p.tsukumo, p.sofmap, p.pckoubou, p.dospara].filter(v => v).map(v => v!)))) + 100
+            ]}
+          />
+          <Line
+            type="monotone"
+            dataKey="tsukumo"
+            strokeWidth={3}
+            stroke="#1f77b4"
+          />
+          <Line
+            type="monotone"
+            dataKey="sofmap"
+            strokeWidth={3}
+            stroke="#ff7f0e"
+          />
+          <Line
+            type="monotone"
+            dataKey="pckoubou"
+            strokeWidth={3}
+            stroke="#2ca02c"
+          />
+          <Line
+            type="monotone"
+            dataKey="dospara"
+            strokeWidth={3}
+            stroke="#d62728"
+          />
+        </LineChart>
+      </ResponsiveContainer>
+    </Modal>
   </>
   );
 }
