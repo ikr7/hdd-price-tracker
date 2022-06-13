@@ -39,7 +39,7 @@ type ShopNames = 'amazonjp' | 'tsukumo' | 'sofmap' | 'pckoubou' | 'dospara';
 function App() {
 
   const [rows, setRows] = useState<HDDEntry[]>([]);
-  const [filenames, setFilenames] = useState<string[]>([]);
+  // const [filenames, setFilenames] = useState<string[]>([]);
   const [history, setHistory] = useState<HDDEntry[][]>([]);
   const [activePriceData, setActivePriceData] = useState<{ [shopName in ShopNames]?: number }[]>([]);
   const [isModalVisible, setIsModalVisible] = useState<boolean>(false);
@@ -49,7 +49,7 @@ function App() {
 
       const fetchedFilenames = await(await fetch('./history.json')).json() as string[];
 
-      setFilenames(fetchedFilenames);
+      // setFilenames(fetchedFilenames);
 
       const responses = await Promise.all(fetchedFilenames.map(filename => {
         return fetch(`data/${filename}`);
